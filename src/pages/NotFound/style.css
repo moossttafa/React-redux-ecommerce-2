@@ -1,0 +1,33 @@
+.not-found{
+  background: #DDD;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  padding: 5rem 0;
+}
+h1{
+  font-size: 2rem;
+  font-weight: bolder;
+}
+h3{
+  text-transform: none;
+  margin-bottom: 2rem;
+}
+.back{
+  text-transform: uppercase;
+  background: #2664ab; 
+  color: #FFF; 
+  padding: 0.375rem 0.75rem;
+  letter-spacing: .1rem; 
+  display: inline-block;
+  font-weight: 400;
+  transition: all .3s linear; 
+  font-size: .875rem;
+  cursor: pointer; 
+  border-radius: 0.25rem; 
+  border-color: transparent;
+}
+.back:hover{
+  color: #DDD;
+}
