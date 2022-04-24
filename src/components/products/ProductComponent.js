@@ -1,31 +1,41 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'; 
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import { fetchProducts } from '../../redux/actions/productActions';
 import AddCardButton from '../Button/AddCardButton';
 // import ReactPaginate from 'react-paginate';
 
 import "./style.css"
 
 const ProductComponent = () => { 
+  const products = useSelector((state) => state.allProducts.products);
+  const dispatch = useDispatch(); 
+
+  useEffect(() => {
+    dispatch(fetchProducts())
+   }, [dispatch]);
     
     return (
       <Fragment> 
         <div className='row'>   
-          <div className='col-lg-3 col-md-4 col-sm-6' >
+        {products.map((product ,id) => 
+          <div className='col-lg-3 col-md-4 col-sm-6' key={id}>
             <div className='card'>
-              <Link to={`/product/`}> 
-                <div className='image'>
-                  <img src="" alt="das" />
-                </div>
-              </Link> 
-              <div className='content'>
-                <div className='header'>asd</div>
-                <div className=' price'>5</div>
-                <div className='category'>cdsd</div> 
-                <AddCardButton/>
+            <Link to={`/product/${id}`}> 
+              <div className='image'>
+                <img src={product.image} alt={product.title} />
               </div>
-            </div> 
+            </Link> 
+            <div className='content'>
+              <div className='header'>{product.title}</div>
+              <div className=' price'>{product.price}</div>
+              <div className='category'>{product.category}</div>
+              <AddCardButton productsData={product} />
+            </div>
           </div> 
+        </div>
+        )}
           </div>
         <ReactPaginate
           breakLabel="..."
