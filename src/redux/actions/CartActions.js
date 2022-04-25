@@ -22,3 +22,26 @@ export const addToCart = (items, product) => (dispatch) => {
     console.log("error",error);
   }
 };
+
+export const removeFromCart = (items, product) => (dispatch) => {
+  try {
+    const cartItems = items.slice().filter((a) => a.id !== product.id);
+    dispatch({ type: Types.REMOVE_CART, payload: { cartItems } });
+    // toast.success("item removed successfully", { autoClose: 2000 });
+  } catch (error) {
+    console.log("error",error);
+  }
+};
+
+export const removeAllProducts = () => {
+  try {
+    return (dispatch) => {
+      dispatch({
+        type: Types.REMOVE_ALL_PRODUCTS,
+      });
+      // toast.success("all items removed successfully", { autoClose: 2000 });
+    };
+  } catch (error) { 
+    console.log("error",error);
+  }
+};

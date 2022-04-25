@@ -1,11 +1,13 @@
 import React from 'react';
 import {RiDeleteBin5Line} from 'react-icons/ri';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeAllProducts, removeFromCart } from '../../redux/actions/CartActions';
 import "./Cart.css"
 
 const Cart = () => {
 
   const cartItems = useSelector((state) => state.Cart.cartItems);
+  const dispatch = useDispatch();
   console.log(cartItems , "cartItems");
 
   const style ={color : "#dc3545" , fontSize : "24px"}
@@ -19,6 +21,9 @@ const Cart = () => {
           </h5> 
           <button 
             className="my-3 btn btn-danger"
+            onClick={() => {
+              dispatch(removeAllProducts(cartItems));
+            }}
           >
             Remove All Products
           </button> 
@@ -40,8 +45,12 @@ const Cart = () => {
                 <h6>count: {item.count}</h6>
               </div>
           </div>
-          <div className='"deleteContainer'>
-            <RiDeleteBin5Line style={style}/>
+          <div className='deleteContainer'
+            onClick={() => {
+              dispatch(removeFromCart(cartItems, item));
+            }}
+          >
+            <RiDeleteBin5Line  style={style}/>
           </div>
         </div>  
      ))}

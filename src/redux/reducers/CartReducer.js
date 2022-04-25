@@ -10,8 +10,14 @@ const CartReducer = (state = initialState , action) => {
       return { ...state.cartItems,
          cartItems: action.payload.cartItems 
         };
-      default:
-        return state;
+    case Types.REMOVE_CART:
+      return { ...state.cartItems,
+         cartItems: action.payload.cartItems 
+        };
+        case Types.REMOVE_ALL_PRODUCTS:
+      return { ...state.cartItems, cartItems: [] };
+    default:
+      return state;
     }
   };
 
