@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound/NotFound"
 import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Footer from './components/Footer/Footer';
+import ProductDetails from './components/products/ProductDetails';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Routes> 
           <Route path="/" exact element={<Home />} /> 
           <Route path="/about"  element={<About />} /> 
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/product" element={<Product />} />
           <Route path="/contact" element={<Contact />} />  
           <Route path="*" element={<NotFound />}/>   

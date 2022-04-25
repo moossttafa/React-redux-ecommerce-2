@@ -15,28 +15,36 @@ const ProductComponent = () => {
   useEffect(() => {
     dispatch(fetchProducts())
    }, [dispatch]);
+
+   const renderList = products.map((products) => {
+    const {id , title,image,price,category} = products;
+    return(  
+      <div className='col-lg-3 col-md-4 col-sm-6'  key={id}>
+        <div className='card'>
+          <Link to={`/product/${id}`}>
+            <div className='image'>
+              <img src={image} alt={title} />
+            </div>
+          </Link>
+          <div className='content'>
+            <h3 className='header'>{title}</h3>
+            <span className='price'>{price}</span>
+            <p className='category'>{category}</p>
+            <button
+              className="btn btn-header my-3"> 
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  })
     
     return (
       <Fragment> 
         <div className='row'>   
-        {products.map((product ,id) => 
-          <div className='col-lg-3 col-md-4 col-sm-6' key={id}>
-            <div className='card'>
-            <Link to={`/product/${id}`}> 
-              <div className='image'>
-                <img src={product.image} alt={product.title} />
-              </div>
-            </Link> 
-            <div className='content'>
-              <div className='header'>{product.title}</div>
-              <div className=' price'>{product.price}</div>
-              <div className='category'>{product.category}</div>
-              <AddCardButton productsData={product} />
-            </div>
-          </div> 
+          {renderList} 
         </div>
-        )}
-          </div>
         <ReactPaginate
           breakLabel="..."
           nextLabel="next >" 

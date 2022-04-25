@@ -1,5 +1,5 @@
 import { RootReducers } from "./reducers";
-import {  applyMiddleware, compose, createStore } from "redux";
+import { createStore , applyMiddleware, compose } from "redux";
 import Thunk from "redux-thunk";
 
 let middleware = [Thunk];

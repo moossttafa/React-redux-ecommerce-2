@@ -1,3 +1,4 @@
 export const Types = {
   FETCH_PRODUCTS : "FETCH_PRODUCTS", 
+  SELECTED_PRODUCT : "SELECTED_PRODUCT",
 }
