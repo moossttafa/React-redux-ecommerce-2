@@ -11,6 +11,8 @@
   padding: 20px;
   background: #fff;
   margin: auto; 
+  display: flex; 
+  justify-content: center;
 }
 .image img{
   height: 100%;
@@ -37,6 +39,7 @@
   display: block; 
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: rgba(0,0,0,.85);
+  height: 64px;
 }
 .content .price{
   margin-bottom: 5px;
@@ -95,4 +98,9 @@
 /* New */
 .home-product{
   padding: 20px 0;
+}
+@media (max-width: 776px) {
+  .image{ 
+    height: 100%; 
+  }
 }

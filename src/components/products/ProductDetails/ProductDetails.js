@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectedProductActions } from '../../redux/actions/productActions';
-
+import { selectedProductActions } from '../../../redux/actions/productActions';
+import AddCardButton from '../../Button/AddCardButton';
+import "./style.css";
 
 const ProductDetails = () => { 
   const { id } = useParams(); 
@@ -19,18 +20,18 @@ const ProductDetails = () => {
   
 
   return (
-    <div className="ui grid container">
+    <div className="Product-details">
       {Object.keys(product).length === 0 ? (
         <div>...Loading</div>
       ) : (
-      <div className="ui segment">
-        <div className="ui two column stackable center aligned grid">
-          <div className="ui vertical divider">AND</div>
-          <div className="middle aligned row">
-            <div className="column lp">
-              <img className="ui fluid image" src={product.image} alt={product.title} />
+      <div className="container"> 
+          <div className="row">
+            <div className="col-md-6">
+              <div className="image-wrapper">
+                <img className='img' src={product.image} alt={product.title} />
+              </div>
             </div>
-            <div className="column rp">
+            <div className="col-md-6">
               <h1>{product.title}</h1>
               <h2>
                 <p className="ui teal tag label">${product.price}</p>
@@ -41,13 +42,12 @@ const ProductDetails = () => {
                 <div className="hidden content">
                   <i className="shop icon"></i>
                 </div>
-                <div className="visible content">Add to Cart</div>
+                <AddCardButton />
               </div>
-            </div>
-          </div>
+            </div> 
         </div>
       </div>
-    )};
+    )} 
     </div>
   );
 };
