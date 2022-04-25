@@ -3,9 +3,10 @@ import { Link, NavLink } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import "./Header.css" 
 import { links } from '../../data';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
- 
+  const cartItems = useSelector((state) => state.Cart.cartItems);
   const [showLinks , setShowLinks] = useState(false)
   const linksContainerRef = useRef(null);
 
@@ -40,7 +41,7 @@ const Header = () => {
             })}
           </ul>
           <NavLink to="/cart" className="btn btn-header ms-5"> Cart 
-              <span className="shopping-cart ml-3">5</span> 
+              <span className="shopping-cart ml-3">{cartItems.length}</span> 
           </NavLink>
           </div> 
     </div>

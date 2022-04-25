@@ -18,10 +18,8 @@
   box-shadow: 0 2px 8px 0 rgb(99 99 99 / 40%);
 }
 .cart-image{
-  width: 130px;
-  height: 80px;
-  max-width: 130px;
-  max-height: 80px;
+  width: 180px;
+  height: 120px; 
   position: relative;
   border-radius: 4px;
 }
@@ -37,7 +35,9 @@
   height: 0px;
   min-width: 100%; 
   max-height: 100%;
+  max-width: 100%;
+  min-height: 100%;
 }
-.car-info{
+.cart-info{
   margin-left: 30px;
 }

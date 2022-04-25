@@ -1,8 +1,12 @@
 import React from 'react';
 import {RiDeleteBin5Line} from 'react-icons/ri';
+import { useSelector } from 'react-redux';
 import "./Cart.css"
 
 const Cart = () => {
+
+  const cartItems = useSelector((state) => state.Cart.cartItems);
+  console.log(cartItems , "cartItems");
 
   const style ={color : "#dc3545" , fontSize : "24px"}
   
@@ -19,26 +23,28 @@ const Cart = () => {
             Remove All Products
           </button> 
       </div> 
-        <div className='cart-content'>
+      {cartItems && cartItems?.map((item) => (
+        <div className='cart-content' key={item.id}>
           <div className='d-flex'>
             <div className='cart-image'>
               <img
-                src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+                src={item.image}
                 alt="example"
                 layout="fill"
                 className="image"
               />
             </div>
             <div className='cart-info'>
-              <h6>Name: Mens Casual Premium Slim Fit T-Shirts </h6>
-              <h6>Price: 15.99</h6>
-              <h6>count: 55</h6>
-            </div>
+                <h6>Name: {item.title}</h6>
+                <h6>Price: {item.price}</h6>
+                <h6>count: {item.count}</h6>
+              </div>
           </div>
           <div className='"deleteContainer'>
             <RiDeleteBin5Line style={style}/>
           </div>
         </div>  
+     ))}
     </div>
   </div>
   )

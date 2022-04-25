@@ -2,14 +2,16 @@ import React, { Fragment, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import { addToCart } from '../../redux/actions/CartActions';
 import { fetchProducts } from '../../redux/actions/productActions';
-import AddCardButton from '../Button/AddCardButton';
+// import AddCardButton from '../Button/AddCardButton';
 // import ReactPaginate from 'react-paginate';
 
 import "./style.css"
 
 const ProductComponent = () => { 
   const products = useSelector((state) => state.allProducts.products);
+  const cartItems = useSelector((state) => state.Cart?.cartItems); 
   const dispatch = useDispatch(); 
 
   useEffect(() => {
@@ -31,7 +33,12 @@ const ProductComponent = () => {
             <span className='price'>{price}</span>
             <p className='category'>{category}</p>
             <button
-              className="btn btn-header my-3"> 
+              className="btn btn-header my-3"
+              onClick={(e) => {
+                dispatch(addToCart(cartItems, products));
+                e.stopPropagation();
+              }}
+              > 
               Add To Cart
             </button>
           </div>
