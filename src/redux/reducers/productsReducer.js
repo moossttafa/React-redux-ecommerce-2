@@ -14,6 +14,12 @@ export const productsReducer = (state = initalState  , action ) => {
       return{ ...state , 
         product: action.payload
       };
+      case Types.FILTER_CATEGORY:
+      return {
+        ...state,
+        filteredItems: action.payload,
+        category: action.category,
+      };
     default:
       return state;
   }

@@ -24,3 +24,18 @@ export const selectedProductActions = (id) => async (dispatch) => {
     console.log("Err: ", err);
   };
 }
+
+export const getCategories = () => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      "https://fakestoreapi.com/products/categories"
+      ); 
+      // console.log("category",response.data);
+    dispatch({
+      type: Types.FETCH_CATEGORIES,
+      payload: response.data,
+    });
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
