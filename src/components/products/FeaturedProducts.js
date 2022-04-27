@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { addToCart } from '../../redux/actions/CartActions'
 import { fetchProducts } from '../../redux/actions/productActions'
-import AddCardButton from '../Button/AddCardButton'
+// import AddCardButton from '../Button/AddCardButton'
 import "./style.css"
 
 function FeaturedProducts() { 
   const products = useSelector((state) => state.allProducts.products);
+  const cartItems = useSelector((state) => state.Cart?.cartItems); 
   const dispatch = useDispatch(); 
 
   useEffect(() => {
@@ -28,7 +30,12 @@ function FeaturedProducts() {
             <span className='price'>{price}</span>
             <p className='category'>{category}</p>
             <button
-              className="btn btn-header my-3"> 
+              className="btn btn-header my-3"
+              onClick={(e) => {
+                dispatch(addToCart(cartItems, products));
+                e.stopPropagation();
+              }}
+              > 
               Add To Cart
             </button>
           </div>

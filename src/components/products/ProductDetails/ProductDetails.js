@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { addToCart } from '../../../redux/actions/CartActions';
 import { selectedProductActions } from '../../../redux/actions/productActions';
 import AddCardButton from '../../Button/AddCardButton';
 import "./style.css";
@@ -9,6 +10,7 @@ const ProductDetails = () => {
   const { id } = useParams(); 
   // const productId = window.location.pathname.replace("/", "").split("/")[1];
   const product = useSelector((state) => state.allProducts.product);
+  const cartItems = useSelector((state) => state.Cart?.cartItems); 
 
   const dispatch = useDispatch();
 
@@ -42,7 +44,15 @@ const ProductDetails = () => {
                 <div className="hidden content">
                   <i className="shop icon"></i>
                 </div>
-                <AddCardButton />
+                <button
+                  className="btn btn-header my-3"
+                  onClick={(e) => {
+                    dispatch(addToCart(cartItems, product));
+                    e.stopPropagation();
+                  }}
+                  > 
+                  Add To Cart
+                </button>
               </div>
             </div> 
         </div>

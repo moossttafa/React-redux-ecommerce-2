@@ -54,6 +54,16 @@ const Cart = () => {
           </div>
         </div>  
      ))}
+     {cartItems.length !== 0 && (
+      <div>
+        <h6 className="fw-bold">
+          Total : $
+          {cartItems?.reduce((acc, p) => {
+            return acc + p.price * p.count;
+          }, 0)}
+        </h6> 
+      </div>
+    )}
     </div>
   </div>
   )
