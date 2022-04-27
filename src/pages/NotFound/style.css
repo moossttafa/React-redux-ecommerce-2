@@ -1,32 +1,25 @@
 .not-found{
-  background: #DDD;
+  background: #fffdfc;
   display: flex; 
   justify-content: center; 
   align-items: center;
   text-align: center;
   padding: 5rem 0;
+  flex-direction: column;
 }
 h1{
-  font-size: 2rem;
+  font-size: 100px;
   font-weight: bolder;
+  margin-bottom: 40px; 
+  font-size: 13rem;
 }
 h3{
   text-transform: none;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+  font-size: 50px;
 }
-.back{
-  text-transform: uppercase;
-  background: #2664ab; 
-  color: #FFF; 
-  padding: 0.375rem 0.75rem;
-  letter-spacing: .1rem; 
-  display: inline-block;
-  font-weight: 400;
-  transition: all .3s linear; 
-  font-size: .875rem;
-  cursor: pointer; 
-  border-radius: 0.25rem; 
-  border-color: transparent;
+.back{ 
+   font-size: 35px;
 }
 .back:hover{
   color: #DDD;

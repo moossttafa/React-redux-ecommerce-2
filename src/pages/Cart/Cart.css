@@ -41,3 +41,6 @@
 .cart-info{
   margin-left: 30px;
 }
+.deleteContainer{
+  cursor: pointer; 
+}

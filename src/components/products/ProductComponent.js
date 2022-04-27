@@ -52,21 +52,23 @@ const ProductComponent = () => {
         <div className='row'>   
           {renderList} 
         </div>
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >" 
-          pageCount={5} 
-          marginPagesDisplayed={3}
-          containerClassName={"pagination justify-content-center my-4"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          activeClassName={"active"}
-          previousLabel="< previous" 
-          // onPageChange={changePage}
-    />
+        {
+        //     <ReactPaginate
+        //       breakLabel="..."
+        //       nextLabel="next >" 
+        //       pageCount={5} 
+        //       marginPagesDisplayed={3}
+        //       containerClassName={"pagination justify-content-center my-4"}
+        //       pageClassName={"page-item"}
+        //       pageLinkClassName={"page-link"}
+        //       previousClassName={"page-link"}
+        //       nextClassName={"page-item"}
+        //       nextLinkClassName={"page-link"}
+        //       activeClassName={"active"}
+        //       previousLabel="< previous" 
+        //       // onPageChange={changePage}
+        // />
+      } 
     </Fragment>
   );
   }
